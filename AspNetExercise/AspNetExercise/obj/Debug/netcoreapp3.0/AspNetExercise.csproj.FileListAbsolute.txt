@@ -53,3 +53,6 @@
 /home/lsilva2714/FIAP/AspNetProjects/RiderProjects/AspNetExercise/AspNetExercise/obj/Debug/netcoreapp3.0/AspNetExercise.csproj.CopyComplete
 /home/lsilva2714/FIAP/AspNetProjects/RiderProjects/AspNetExercise/AspNetExercise/obj/Debug/netcoreapp3.0/AspNetExercise.dll
 /home/lsilva2714/FIAP/AspNetProjects/RiderProjects/AspNetExercise/AspNetExercise/obj/Debug/netcoreapp3.0/AspNetExercise.pdb
+/home/lsilva2714/FIAP/AspNetProjects/RiderProjects/AspNetExercise/AspNetExercise/obj/Debug/netcoreapp3.0/Razor/Views/Jogo/Cadastrar.cshtml.g.cs
+/home/lsilva2714/FIAP/AspNetProjects/RiderProjects/AspNetExercise/AspNetExercise/obj/Debug/netcoreapp3.0/Razor/Views/Jogo/Listar.cshtml.g.cs
+/home/lsilva2714/FIAP/AspNetProjects/RiderProjects/AspNetExercise/AspNetExercise/obj/Debug/netcoreapp3.0/Razor/Views/Jogo/Editar.cshtml.g.cs

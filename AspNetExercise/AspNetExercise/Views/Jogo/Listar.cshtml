@@ -1,0 +1,93 @@
+@model System.Collections.Generic.List<AspNetExercise.Models.Jogo>
+
+@{
+    ViewBag.Title = "Lista de Jogos";
+    Layout = "_Layout";
+}
+@if (TempData["msg"] != null)
+{
+    <span class="alert alert-info mb-5 mt-5">@TempData["msg"]</span>
+}
+<h2 class="mt-3">Lista de Jogos</h2>
+
+<form class="mt-3 mb-3" asp-action="Buscar" asp-controller="Jogo" method="get">
+    <div class="form-group form-inline">
+        <input type="text" name="nomeBusca" class="form-control mr-3" placeholder="Digite o nome para buscar..."/>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+    <tr>
+        <td>Código</td>
+        <td>Nome</td>
+        <td>Data de Lançamento</td>
+        <td>Plataforma</td>
+        <td>Disponível</td>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Codigo</td>
+                <td>@item.Nome</td>
+                <td>@item.DataLancamento.ToShortDateString()</td>
+                <td>@item.Plataforma</td>
+                <td>@(item.Disponivel ? "Sim" : "Não")</td>
+                <td><button onclick="idDisponivel.value = @item.Codigo" class="btn btn-success" disabled="@item.Disponivel" type="button" data-toggle="modal" data-target="#modalDisponibilizar">Disponibilizar</button></td>
+                <td><button data-toggle="modal" data-target="#modalExcluir" onclick="idExcluir.value = @item.Codigo" class="btn btn-danger" type="button" disabled="@(@item.Disponivel)">Remover</button></td>
+                <td><a asp-action="Editar" asp-route-id="@item.Codigo" class="btn btn-primary">Editar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="modalDisponibilizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar ação</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Disponibilizar jogo?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <form asp-action="Disponibilizar">
+                    <input id="idDisponivel" type="hidden" name="id"/>
+                    <button type="submit" class="btn btn-success">Confirmar</button>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">Confirmar ação</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Excluir jogo?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <form asp-action="Excluir">
+                    <input id="idExcluir" type="hidden" name="codigo"/>
+                    <button type="submit" class="btn btn-danger">Confirmar</button>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>

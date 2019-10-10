@@ -9,6 +9,7 @@
         <e p="AspNetExercise.csproj" t="IncludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="HomeController.cs" t="Include" />
+          <e p="JogoController.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
           <e p="20191010040319_FirstMigration.Designer.cs" t="Include" />
@@ -32,6 +33,11 @@
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
             <e p="Privacy.cshtml" t="Include" />
+          </e>
+          <e p="Jogo" t="Include">
+            <e p="Cadastrar.cshtml" t="Include" />
+            <e p="Editar.cshtml" t="Include" />
+            <e p="Listar.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="Error.cshtml" t="Include" />
