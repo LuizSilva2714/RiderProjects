@@ -1,0 +1,29 @@
+﻿@using _07_Fiap_Web.AspNet
+@model Cadeia
+@{
+    ViewData["Title"] = "Cadastrar";
+}
+
+<h2>Cadastro de Cadeia</h2>
+
+@TempData["msg"]
+
+<form asp-action="cadastrar">
+    <div class="form-group">
+        <label asp-for="Nome"></label>
+        <input asp-for="Nome" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Capacidade"></label>
+        <input asp-for="Capacidade" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Nivel"></label>
+        <select asp-for="Nivel" class="form-control"
+                asp-items="@Html.GetEnumSelectList(typeof(Nivel)))">
+            <option>Selecione</option>
+        </select>
+    </div>
+    <input type="submit" value="Cadastrar" class="btn btn-primary" />
+</form>
+
